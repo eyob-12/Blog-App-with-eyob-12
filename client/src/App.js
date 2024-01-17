@@ -1,6 +1,7 @@
 import './App.css';
-import Post from "./Post";
-import Header from "./Header";
+import 'tailwindcss/tailwind.css';
+//import Post from "./Post";
+//import Header from "./Header";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
@@ -12,8 +13,10 @@ import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 
 function App() {
-  return (
-    <UserContextProvider>
+  return ( 
+    <>
+      <UserContextProvider>
+        <div className="bg-gray-500 min-h-screen text-white">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />
@@ -23,8 +26,11 @@ function App() {
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/edit/:id" element={<EditPost />} />
         </Route>
-      </Routes>
+          </Routes>
+          </div>
     </UserContextProvider>
+    
+  </>
   );
 }
 
